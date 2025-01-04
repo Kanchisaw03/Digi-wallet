@@ -38,7 +38,7 @@ function App() {
     <div className="flex flex-col overflow-hidden bg-white">
       
       <Routes>
-        <Route path="/auth" element= {
+        <Route path="/" element= {
           
           <AuthLayout />
           
