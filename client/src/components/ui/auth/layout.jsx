@@ -45,3 +45,8 @@ function AuthLayout() {
 export default AuthLayout;
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> dc05d0446365408ce43250ab9b72d72c61ca72f9

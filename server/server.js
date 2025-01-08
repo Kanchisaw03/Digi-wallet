@@ -30,10 +30,15 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use("/api/auth", authRouter);
 
 app.listen(PORT, ()=> console.log(`server is connected ${PORT}`))
+<<<<<<< HEAD
 mongoose.connect('mongodb://0.0.0.0:27017/kanchi', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
+=======
+mongoose
+mongoose.connect('md url')
+>>>>>>> dc05d0446365408ce43250ab9b72d72c61ca72f9
   .then(() => {
     console.log('MongoDB connected');
   })
@@ -227,6 +232,16 @@ app.get('/api/generate-upi', (req, res) => {
   });
    
 
+<<<<<<< HEAD
    
        
    
+=======
+
+
+        const upi_id = generateUPI();
+        const balance = 200;
+
+        
+   
+>>>>>>> dc05d0446365408ce43250ab9b72d72c61ca72f9
