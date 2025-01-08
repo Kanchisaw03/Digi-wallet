@@ -31,7 +31,7 @@ app.use("/api/auth", authRouter);
 
 app.listen(PORT, ()=> console.log(`server is connected ${PORT}`))
 <<<<<<< HEAD
-mongoose.connect('mongodb://0.0.0.0:27017/kanchi', {
+mongoose.connect('mongodb: url', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
