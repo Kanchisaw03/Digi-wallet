@@ -1,9 +1,9 @@
-import {Outlet} from "react-router-dom";
-
-
-
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 function AuthLayout() {
+  const location = useLocation();
+  const showButtons = location.pathname === "/";
+
   return (
     <div className="flex min-h-screen w-full">
       {/* Left Side */}
@@ -17,11 +17,31 @@ function AuthLayout() {
 
       {/* Right Side */}
       <div className="flex flex-1 items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
-        <Outlet />
+        <div className="space-y-6 text-center w-full max-w-md">
+          {/* Show buttons only on the root path */}
+          {showButtons && (
+            <div className="flex justify-center space-x-4 mb-6">
+              <Link to="/login">
+                <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                  Login
+                </button>
+              </Link>
+              <Link to="/register">
+                <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                  Register
+                </button>
+              </Link>
+            </div>
+          )}
+
+          {/* Render child components (forms for login/register) */}
+          <Outlet />
+        </div>
       </div>
     </div>
   );
 }
 
 export default AuthLayout;
+
 

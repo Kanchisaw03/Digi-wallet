@@ -1,4 +1,5 @@
 import CommonForm from "@/components/common/form";
+import axios from "axios";
 
 
 import { registerFormControls } from "@/config";
@@ -24,6 +25,17 @@ function AuthRegister() {
         navigate("/user/home");
         
       })
+
+      axios
+       .post("http://localhost:5001/api/signup", user) // Updated port
+       .then((res) => {
+       alert("Signup successful");
+       setName("");
+       setEmail("");
+       setPassword("");
+       setErrorMessage("");
+      })
+      
   }
 
   console.log(formData);
@@ -38,7 +50,7 @@ function AuthRegister() {
           Already have an account
           <Link
             className="font-medium ml-2 text-primary hover:underline"
-            to="/auth/login"
+            to="/login"
           >
             Login
           </Link>

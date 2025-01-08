@@ -11,15 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-
-
-
-
 function AdminDashboard() {
-    
-        
-
-    
   const [user, setUser] = useState(null);
   const [transactions, setTransactions] = useState([]);
   const [receiverUpi, setReceiverUpi] = useState("");
@@ -45,7 +37,7 @@ function AdminDashboard() {
   const fetchTransactions = async (upi_id) => {
     try {
       const response = await axios.get(
-        `http://localhost:4003/api/transactions/${upi_id}`
+        `http://localhost:5001/api/transactions/${upi_id}`
       );
       setTransactions(response.data);
     } catch (error) {
@@ -56,7 +48,7 @@ function AdminDashboard() {
   const fetchBalance = async (upi_id) => {
     try {
       const response = await axios.get(
-        `http://localhost:4003/api/user/${upi_id}`
+        `http://localhost:5001/api/user/${upi_id}`
       );
       setUser(response.data);
     } catch (error) {
@@ -71,7 +63,7 @@ function AdminDashboard() {
     }
     try {
       const response = await axios.post(
-        "http://localhost:4003/api/transaction",
+        "http://localhost:5001/api/transaction",
         {
           sender_upi_id: user.upi_id,
           receiver_upi_id: receiverUpi,
@@ -98,8 +90,8 @@ function AdminDashboard() {
     }))
     .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
 
-  return (
-    <div>
+    return (
+      <div>
       <div className="m-4">
         {user && (
           <div className="card mt-4">
